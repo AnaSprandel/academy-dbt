@@ -10,7 +10,7 @@ with
             , unitprice as unit_price
             , unitpricediscount as unit_price_discount
             , rowguid
-            , modifieddate
+            , modifieddate as order_date
         from {{ ref('salesorderdetail') }}
     )
 select *
