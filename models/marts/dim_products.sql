@@ -1,7 +1,8 @@
 with 
     dim_products as (
-        select 
-            product_id
+        select
+            cast(product_id as string) || '-' || cast(product_name as string) as product_sk
+            , product_id
             , product_name
             , product_number
             , makeflag
@@ -10,7 +11,9 @@ with
             , safety_stock_level
             , standard_cost
             , list_price
+            , product_subcategory
+            , product_category
         from {{ ref('stg_products') }}
     )
 select *
-from products
+from dim_products
