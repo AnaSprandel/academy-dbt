@@ -3,9 +3,9 @@ with
         select
             salesorderid as sales_order_id
             , revisionnumber
-            , orderdate as order_date
-            , duedate
-            , shipdate
+            , cast(cast(orderdate as timestamp) as date) as order_date
+            , cast(cast(duedate as timestamp) as date) as duedate
+            , cast(cast(shipdate as timestamp) as date) as shipdate
             , status
             , onlineorderflag as online_order_flag
             , purchaseordernumber

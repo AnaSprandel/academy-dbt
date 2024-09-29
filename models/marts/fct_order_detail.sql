@@ -20,9 +20,17 @@ with
         from {{ ref('dim_products') }}
     )
 
+    , dim_dates as (
+        select
+            date_sk
+            , date_day
+        from {{ ref('dim_dates') }}
+    )
+
     , final as (
         select
-            dim_products.product_sk as product_fk 
+            dim_products.product_sk as product_fk
+            , dim_dates.date_sk as date_fk
             , order_detail.sales_order_id
             , order_detail.sales_order_detail_id
             , order_detail.carriertrackingnumber
@@ -34,7 +42,9 @@ with
             , order_detail.order_date
         from order_detail
         left join dim_products
-            on dim_products.product_id = order_detail.product_id     
+            on dim_products.product_id = order_detail.product_id    
+        left join dim_dates
+            on dim_dates.date_day = cast(order_detail.order_date as date) 
     )
 
 select *
