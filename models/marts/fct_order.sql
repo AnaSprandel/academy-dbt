@@ -42,10 +42,17 @@ with
         from {{ ref('dim_customer') }}
     )
 
+    , dim_dates as (
+        select
+            date_sk
+            , date_day
+        from {{ ref('dim_dates') }}
+    )
 
     , final as (
         select
             dim_customer.customer_sk as customer_fk
+            , dim_dates.date_sk as date_fk
             , orders.sales_order_id
             , credit_card.card_type
             , orders.revisionnumber
@@ -76,6 +83,8 @@ with
             on dim_customer.customer_id = orders.customer_id
         left join credit_card
             on credit_card.credit_card_id = orders.credit_card_id
+        left join dim_dates
+            on dim_dates.date_day = cast(orders.shipdate as date)
     )
 
 select *
