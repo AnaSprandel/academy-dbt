@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_credit_card
+    description: Contains the IDs of credit card and it's types.
+    columns:
+      - name: credit_card_id
+        description: Credit card identification number.
+        tests:
+          - unique
+          - not_null
+      
+      - name: card_type
+        description: Credit card type.
