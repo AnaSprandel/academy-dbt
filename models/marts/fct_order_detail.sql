@@ -48,4 +48,4 @@ with
     )
 
 select *
-from order_detail
+from final

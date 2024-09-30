@@ -10,7 +10,7 @@ with
             , unitprice as unit_price
             , unitpricediscount as unit_price_discount
             , rowguid
-            , format_timestamp('YYYY-MM-DD', cast(modifieddate as timestamp)) as order_date
+            , cast(cast(modifieddate as timestamp) as date) as order_date
         from {{ ref('salesorderdetail') }}
     )
 select *
