@@ -3,7 +3,10 @@ with
         select
             businessentityid
             , addressid
+            , row_number() over(partition by businessentityid order by modifieddate) as dedup_address
         from {{ ref('businessentityaddress') }}
+        qualify dedup_address = 1
+
     )
 
     , address as (
