@@ -53,7 +53,7 @@ with
     )
 
     , join_country as (
-        select 
+        select distinct
             join_state_province.businessentityid
             , join_state_province.city
             , join_state_province.province_name
