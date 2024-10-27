@@ -41,6 +41,7 @@ with
         from customer
         left join territory
             on territory.businessentityid = customer.businessentityid
+        where customer.customerid is not null
     )
 
 select *

@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_customer
+    description: Contains current customer information.
+    columns:
+      - name: businessentityid
+        description: Primary key for Person records.
+        tests:
+          - unique
+          - not_null
+      
+      - name: customerid
+        description: Customer identification number.
+      
+      - name: personid
+        description: Person identification number.
+      
+      - name: persontype
+        description: Primary type of person, ex. SC = Store Contact, IN = Individual (retail) customer, SP = Sales person, EM = Employee (non-sales), VC = Vendor contact, GC = General contact
+
+      - name: namestyle
+        description: When = 0 then the data in FirstName and LastName are stored in western style (first name, last name) order, and when = 1 then eastern style (last name, first name) order. Default = 0.
+      
+      - name: title
+        description: A courtesy title. For example, Mr. or Ms.
+      
+      - name: firstname
+        description: First name of the person
+      
+      - name: middlename
+        description: Middle name or middle initial of the person.
+      
+      - name: lastname
+        description: Last name of the person.
+      
+      - name: customer_full_name
+        description: Full name of the person

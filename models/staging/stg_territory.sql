@@ -15,6 +15,7 @@ with
             , city
             , stateprovinceid
         from {{ ref('address') }}
+        where addressid is not null
     )
     
     , state_province as (

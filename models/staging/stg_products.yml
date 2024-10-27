@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: Contains data abbout the products sold or used in the manfacturing of sold products.
+    columns:
+      - name: product_id
+        description: Primary key for Product records
+        tests:
+          - unique
+          - not_null
+      
+      - name: product_name
+        description: Name of the product.
+      
+      - name: product_number
+        description: Unique product identification number.
+      
+      - name: makeflag
+        description: Wheter the product was purchased or manufactured in-house. (0 = Product is purchased, 1 = Product is manufactured in-house. Default = 1).
+      
+      - name: finished_goods_flag
+        description: Wheter the product is salable or not a salable item. (0 = Product is not a salable item. 1 = Product is salable. Default = 1). 
+      
+      - name: product_color
+        description: Product color.
+      
+      - name: safety_stock_level
+        description: Minimum inventory quantity.
+      
+      - name: standard_cost
+        description: Standard cost of the product.
+      
+      - name: list_price
+        description: Selling price.
+      
+      - name: product_subcategory
+        description: Product is a member of this product subcategory.
+      
+      - name: product_category
+        description: Product is a member of this product category.
