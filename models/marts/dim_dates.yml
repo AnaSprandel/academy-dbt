@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: dim_dates
+    description: Dimension with daily dates.
+    columns:
+      - name: date_sk
+        description: Surrogate key for each day, format yyyymmdd.
+        tests:
+          - unique
+          - not_null
+      
+      - name: date_day
+        description: Day of the specific date.
+      
+      - name: week_day
+        description: The day of the week.
+      
+      - name: day_name
+        description: Name of the day of the week. Eg. Monday.
+      
+      - name: month
+        description: Number of the  month of the specific date
+      
+      - name: month_name
+        description: Name of the month. Eg. January.
+      
+      - name: month_abrv
+        description: Abbreviated name of the month.
+      
+      - name: quarter
+        description: The quarter number.
+      
+      - name: quarter_name
+        description: The quarter name.
+      
+      - name: semester
+        description: The semester number.
+      
+      - name: semester_name
+        description: The semester name.
+      
+      - name: day_of_the_year
+        description: The day of the year.
+      
+      - name: year
+        description: The year.

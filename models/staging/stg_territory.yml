@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_territory
+    description: Adress of a business antity.
+    columns:
+      - name: businessentityid
+        description: Primary key. Foreign key to BusinessEntity.BusinessEntityID
+        tests:
+          - unique
+          - not_null
+      
+      - name: city
+        description: Name of the city.
+      
+      - name: province_name
+        description: State or province description.
+      
+      - name: country_name
+        description: Country or region name.

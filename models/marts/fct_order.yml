@@ -1,0 +1,92 @@
+version: 2
+
+models:
+  - name: fct_order
+    description: Contains data abbout the orders.
+    columns:
+      - name: customer_fk
+        description: dim_customer foreign key.
+        tests:
+          - unique
+          - not_null
+      
+      - name: date_fk
+        description: dim_dates foreign key.
+        tests:
+          - unique
+          - not_null
+      
+      - name: sales_order_id
+        description: Primary key to the sales order table.
+      
+      - name: card_type
+        description: Credit card type.
+      
+      - name: revisionnumber
+        description: Incremental number to track changes to the sales order over time. Default = 0
+      
+      - name: order_date
+        description: Dates the sales order was created. Default = getdate()
+      
+      - name: duedate
+        description: Date the order is due to the customer.
+      
+      - name: shipdate
+        description: Date the order was shipped to the customer.
+      
+      - name: status
+        description: Order current status. 1 = In process; 2 = Approved; 3 = Backordered; 4 = Rejected; 5 = Shipped; 6 = Cancelled; Default = 1.
+      
+      - name: online_order_flag
+        description: 0 = Order placed by sales person. 1 = Order placed online by customer. Default = 1 .
+      
+      - name: purchaseordernumber
+        description: Customer purchase order number reference.
+      
+      - name: accountnumber
+        description: Financial accounting number reference.
+      
+      - name: customer_id
+        description: Customer identification number.
+      
+      - name: sales_person_id
+        description: Sales person who created the sales order.
+      
+      - name: territory_id
+        description: Territory in which the sale was made.
+      
+      - name: bill_to_address_id
+        description: Customer billing address.
+      
+      - name: ship_to_address_id
+        description: Customer shipping address.
+      
+      - name: ship_method_id
+        description: Shipping method.
+      
+      - name: credit_card_Id
+        description: Credit card identification number.
+      
+      - name: creditcardapprovalcode
+        description: Approval code provided by the credit card company.
+      
+      - name: currencyrateid
+        description: Currency exchange rate used.
+      
+      - name: subtotal
+        description: Sales subtotal. Default = 0.00
+
+      - name: tax_amt
+        description: Tax amount. Default = 0.00
+      
+      - name: freight
+        description: Shipping cost. Default = 0.00
+      
+      - name: total_due
+        description: Total due from customer. Computed as Subtotal + TaxAmt + Freight. Computed = isnull(([SubTotal]+[TaxAmt])+[Freight],(0)) 
+      
+      - name: order_qty
+        description: Quantity ordered per product.
+
+      - name: comment
+        description: Sales representative comments.

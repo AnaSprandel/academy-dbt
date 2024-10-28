@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_sales_order_detail
+    description: Individual products associated with a specific sales order.
+    columns:
+      - name: sales_order_id
+        description: Primary key. Foreign key to SalesOrderHeader.SalesOrderID.
+        tests:
+          - not_null
+      
+      - name: sales_order_detail_id
+        description: Primary key. One incremental unique number per product sold. Identity / Auto increment column.
+        tests:
+          - unique
+          - not_null
+      
+      - name: carriertrackingnumber
+        description: Shipment tracking number supplied by the shipper.
+      
+      - name: order_qty
+        description: Quantity ordered per product.
+      
+      - name: product_id
+        description: Product sold to customer. Foreign key to Product.ProductID.
+      
+      - name: special_offer_id
+        description: Promotional code. Foreign key to SpecialOffer.SpecialOfferID.
+      
+      - name: unit_price
+        description: Selling price of a single product.
+      
+      - name: unit_price_discount
+        description: Discount amount. Default = 0.0
+      
+      - name: rowguid
+        description: ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample. Default = newid()
+
+      - name: order_date
+        description: Date and time the record was last updated. Default = getdate()
