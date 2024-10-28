@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: fct_order_detail
+    description: Contains the details of every order.
+    columns:
+      - name: product_fk
+        description: Foreign key of the product.
+        tests:
+          - unique
+          - not_null
+      
+      - name: date_fk
+        description: dim_dates foreign key.
+        tests:
+          - unique
+          - not_null
+      
+      - name: sales_order_id
+        description: The order table id.
+        tests:
+          - not_null
+      
+      - name: sales_order_detail_id
+        description: The order details table id.
+        tests:
+          - not_null
+
+      - name: carriertrackingnumber
+        description: Shipment tracking number supplied by the shipper.
+      
+      - name: order_qty
+        description: Quantity ordered per product.
+      
+      - name: product_id
+        description: Identification number of the product sold to customer.
+      
+      - name: special_offer_id
+        description: Promotional code identification number.
+      
+      - name: unit_price
+        description: Selling price of a single product.
+      
+      - name: unit_price_discount
+        description: Discount amount. Default = 0.0
+      
+      - name: order_date
+        description: Date and time the record was last updated. Default = getdate()

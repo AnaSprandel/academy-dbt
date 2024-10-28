@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: agg_order_reason.yml
+    description: Dimention with information abbout customers.
+    columns:
+      - name: sales_reason
+        description: Sales reason description.
+      
+      - name: reason_type
+        description: Category the sales reason belongs to.
+      
+      - name: number_of_orders
+        description: Number od orders.
+
+      - name: subtotal
+        description: Sales subtotal.
+      
+      - name: tax_amt
+        description: Tax amount.
+      
+      - name: freight
+        description: Shipping cost.
+      
+      - name: total_due
+        description: Total due from customer. Computed as Subtotal + TaxAmt + Freight. Computed = isnull(([SubTotal]+[TaxAmt])+[Freight],(0)) 
+      
+      - name: order_qty
+        description: Quantity ordered per product.
+ 
