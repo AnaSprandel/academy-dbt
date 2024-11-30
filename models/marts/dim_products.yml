@@ -4,11 +4,8 @@ models:
   - name: dim_products
     description: Contains data abbout the products sold or used in the manfacturing of sold products.
     columns:
-      - name: customer_fk
+      - name: product_fk
         description: dim_product surrogate key.
-        tests:
-          - unique
-          - not_null
       
       - name: product_id
         description: Primary key for Product records

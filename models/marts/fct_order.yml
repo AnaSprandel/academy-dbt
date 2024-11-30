@@ -7,13 +7,11 @@ models:
       - name: customer_fk
         description: dim_customer foreign key.
         tests:
-          - unique
           - not_null
       
       - name: date_fk
         description: dim_dates foreign key.
         tests:
-          - unique
           - not_null
       
       - name: sales_order_id

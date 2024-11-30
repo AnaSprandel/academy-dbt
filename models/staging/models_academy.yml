@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw_sheets
+    database: 
+    tables:
+      - name: creditcard
+      - name: customer
+      - name: products
+      - name: sales_order
+      - name: sales_order_detail
+      - name: sales_order_sales_reason
+      - name: territory

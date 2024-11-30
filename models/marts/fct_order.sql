@@ -52,6 +52,8 @@ with
     , final as (
         select
             dim_customer.customer_sk as customer_fk
+            , orders.customer_id
+            , dim_customer.customer_id as customer_id_dim
             , dim_dates.date_sk as date_fk
             , orders.sales_order_id
             , credit_card.card_type
@@ -63,7 +65,6 @@ with
             , orders.online_order_flag
             , orders.purchaseordernumber
             , orders.accountnumber
-            , orders.customer_id
             , orders.sales_person_id
             , orders.territory_id
             , orders.bill_to_address_id
